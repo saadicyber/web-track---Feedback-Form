@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intern Feedback Form — Deimos Program</title>
+  <meta name="description" content="Submit your weekly internship feedback. Share your experience, report issues, or suggest improvements to the Deimos program coordinators." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated background orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="page-wrapper">
+
+    <!-- ── Header ── -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="logo">
+          <div class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" stroke="url(#grad1)" stroke-width="2.5"/>
+              <path d="M10 16 L14 20 L22 12" stroke="url(#grad1)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="grad1" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#a78bfa"/>
+                  <stop offset="100%" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-name">Deimos</span>
+            <span class="logo-sub">Internship Portal</span>
+          </div>
+        </div>
+        <div class="header-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>Week 2 · Jul 8–14, 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Main Content ── -->
+    <main class="main-content" id="main">
+
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-eyebrow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 1L10.09 5.26L14.82 5.92L11.41 9.24L12.18 14L8 11.77L3.82 14L4.59 9.24L1.18 5.92L5.91 5.26L8 1Z" fill="currentColor"/>
+          </svg>
+          Weekly Feedback
+        </div>
+        <h1 id="hero-title" class="hero-title">Share Your Experience</h1>
+        <p class="hero-desc">Your feedback helps us build a better internship for everyone. It takes less than 3 minutes.</p>
+      </section>
+
+      <div class="content-grid">
+
+        <!-- ── Feedback Form Card ── -->
+        <section class="card form-card" aria-label="Feedback form">
+
+          <div class="card-header">
+            <div class="card-title-group">
+              <h2 class="card-title">Submit Feedback</h2>
+              <p class="card-subtitle">All fields are required unless noted.</p>
+            </div>
+            <div class="step-indicator" aria-label="Form progress">
+              <div class="step active" id="step-1" aria-label="Step 1: Personal Info">1</div>
+              <div class="step-line"></div>
+              <div class="step" id="step-2" aria-label="Step 2: Rating">2</div>
+              <div class="step-line"></div>
+              <div class="step" id="step-3" aria-label="Step 3: Message">3</div>
+            </div>
+          </div>
+
+          <!-- Status Banner -->
+          <div id="status-banner" class="status-banner" role="alert" aria-live="polite" hidden>
+            <div class="status-icon" aria-hidden="true"></div>
+            <div class="status-body">
+              <p class="status-title" id="status-title"></p>
+              <p class="status-detail" id="status-detail"></p>
+            </div>
+            <button class="status-close" id="status-close" aria-label="Dismiss notification" type="button">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <form id="feedback-form" novalidate autocomplete="on">
+
+            <!-- Section 1: Personal Info -->
+            <fieldset class="form-section" id="section-personal">
+              <legend class="section-legend">
+                <span class="section-num" aria-hidden="true">01</span>
+                Personal Information
+              </legend>
+
+              <div class="form-row two-col">
+                <!-- Full Name -->
+                <div class="form-group" id="group-name">
+                  <label for="name" class="form-label">
+                    Full Name
+                    <span class="required-dot" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <circle cx="9" cy="6" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 16c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                      </svg>
+                    </span>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      placeholder="e.g. Sara Ahmed"
+                      autocomplete="name"
+                      aria-required="true"
+                      aria-describedby="name-error"
+                      minlength="3"
+                      maxlength="50"
+                    />
+                  </div>
+                  <span class="field-error" id="name-error" role="alert" aria-live="polite"></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group" id="group-email">
+                  <label for="email" class="form-label">
+                    Email Address
+                    <span class="required-dot" aria-hidden="true">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      placeholder="sara@example.com"
+                      autocomplete="email"
+                      aria-required="true"
+                      aria-describedby="email-error"
+                    />
+                  </div>
+                  <span class="field-error" id="email-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Section 2: Category & Rating -->
+            <fieldset class="form-section" id="section-rating">
+              <legend class="section-legend">
+                <span class="section-num" aria-hidden="true">02</span>
+                Category &amp; Rating
+              </legend>
+
+              <!-- Category -->
+              <div class="form-group" id="group-category">
+                <label for="category" class="form-label">
+                  Feedback Category
+                  <span class="required-dot" aria-hidden="true">*</span>
+                </label>
+                <div class="input-wrapper select-wrapper">
+                  <span class="input-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                      <rect x="2" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M5 7h8M5 10h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <select id="category" name="category" class="form-input form-select" aria-required="true" aria-describedby="category-error">
+                    <option value="" disabled selected>Select a category…</option>
+                    <option value="general">💬 General Feedback</option>
+                    <option value="bug">🐛 Bug Report</option>
+                    <option value="suggestion">💡 Suggestion</option>
+                  </select>
+                  <span class="select-arrow" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+                <span class="field-error" id="category-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <!-- Rating -->
+              <div class="form-group" id="group-rating">
+                <fieldset class="rating-fieldset">
+                  <legend class="form-label">
+                    Rate Your Week
+                    <span class="required-dot" aria-hidden="true">*</span>
+                  </legend>
+                  <div class="rating-group" role="group" aria-describedby="rating-error">
+                    <label class="rating-option" for="rating-1">
+                      <input type="radio" id="rating-1" name="rating" value="1" class="rating-radio" aria-label="1 — Very Poor"/>
+                      <span class="rating-card">
+                        <span class="rating-emoji" aria-hidden="true">😞</span>
+                        <span class="rating-label">1</span>
+                        <span class="rating-desc">Very Poor</span>
+                      </span>
+                    </label>
+                    <label class="rating-option" for="rating-2">
+                      <input type="radio" id="rating-2" name="rating" value="2" class="rating-radio" aria-label="2 — Poor"/>
+                      <span class="rating-card">
+                        <span class="rating-emoji" aria-hidden="true">😕</span>
+                        <span class="rating-label">2</span>
+                        <span class="rating-desc">Poor</span>
+                      </span>
+                    </label>
+                    <label class="rating-option" for="rating-3">
+                      <input type="radio" id="rating-3" name="rating" value="3" class="rating-radio" aria-label="3 — Okay"/>
+                      <span class="rating-card">
+                        <span class="rating-emoji" aria-hidden="true">😐</span>
+                        <span class="rating-label">3</span>
+                        <span class="rating-desc">Okay</span>
+                      </span>
+                    </label>
+                    <label class="rating-option" for="rating-4">
+                      <input type="radio" id="rating-4" name="rating" value="4" class="rating-radio" aria-label="4 — Good"/>
+                      <span class="rating-card">
+                        <span class="rating-emoji" aria-hidden="true">😊</span>
+                        <span class="rating-label">4</span>
+                        <span class="rating-desc">Good</span>
+                      </span>
+                    </label>
+                    <label class="rating-option" for="rating-5">
+                      <input type="radio" id="rating-5" name="rating" value="5" class="rating-radio" aria-label="5 — Excellent"/>
+                      <span class="rating-card">
+                        <span class="rating-emoji" aria-hidden="true">🤩</span>
+                        <span class="rating-label">5</span>
+                        <span class="rating-desc">Excellent</span>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+                <span class="field-error" id="rating-error" role="alert" aria-live="polite"></span>
+              </div>
+            </fieldset>
+
+            <!-- Section 3: Message -->
+            <fieldset class="form-section" id="section-message">
+              <legend class="section-legend">
+                <span class="section-num" aria-hidden="true">03</span>
+                Your Message
+              </legend>
+
+              <div class="form-group" id="group-message">
+                <div class="label-row">
+                  <label for="message" class="form-label">
+                    Detailed Feedback
+                    <span class="required-dot" aria-hidden="true">*</span>
+                  </label>
+                  <span class="char-counter" id="char-counter" aria-live="polite" aria-label="Character count">
+                    <span id="char-count">0</span> / 500
+                  </span>
+                </div>
+                <div class="input-wrapper textarea-wrapper">
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-input form-textarea"
+                    placeholder="Describe your experience in detail — what went well, what could be improved, or anything you'd like the coordinators to know…"
+                    rows="5"
+                    minlength="10"
+                    maxlength="500"
+                    aria-required="true"
+                    aria-describedby="message-error char-counter"
+                  ></textarea>
+                </div>
+                <span class="field-error" id="message-error" role="alert" aria-live="polite"></span>
+              </div>
+            </fieldset>
+
+            <!-- Submit -->
+            <div class="form-footer">
+              <button type="submit" id="submit-btn" class="btn btn-primary" aria-describedby="submit-hint">
+                <span class="btn-content">
+                  <svg class="btn-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                    <path d="M16 2L9 9M16 2L11 16L9 9M16 2L2 7L9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Send Feedback
+                </span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+              </button>
+              <p class="visually-hidden" id="submit-hint">Submits your feedback to the mock API and shows the result inline.</p>
+            </div>
+
+          </form>
+        </section>
+
+        <!-- ── Sidebar ── -->
+        <aside class="sidebar" aria-label="Sidebar information">
+
+          <!-- Tips Card -->
+          <div class="card tips-card">
+            <div class="tips-header">
+              <span class="tips-icon" aria-hidden="true">✨</span>
+              <h2 class="tips-title">Tips for Great Feedback</h2>
+            </div>
+            <ul class="tips-list" role="list">
+              <li class="tip-item">
+                <span class="tip-num" aria-hidden="true">1</span>
+                <span>Be specific — mention actual tasks, sessions, or tools.</span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-num" aria-hidden="true">2</span>
+                <span>Include both positives and areas to improve.</span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-num" aria-hidden="true">3</span>
+                <span>Rate honestly — 3 is perfectly fine!</span>
+              </li>
+              <li class="tip-item">
+                <span class="tip-num" aria-hidden="true">4</span>
+                <span>Keep it constructive and solution-oriented.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Stats Card -->
+          <div class="card stats-card">
+            <h2 class="stats-title">Program Stats</h2>
+            <div class="stats-grid">
+              <div class="stat">
+                <span class="stat-value" aria-label="8 active interns">8</span>
+                <span class="stat-label">Active Interns</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" aria-label="Week 2">2</span>
+                <span class="stat-label">Current Week</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" aria-label="4 hours estimated effort">4h</span>
+                <span class="stat-label">Avg. Task Time</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value" aria-label="70 pass bar">70</span>
+                <span class="stat-label">Pass Bar</span>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+
+      <!-- ── Recent Submissions (Bonus) ── -->
+      <section class="card recent-card" id="recent-section" aria-labelledby="recent-title">
+        <div class="recent-header">
+          <div>
+            <h2 class="card-title" id="recent-title">Recent Submissions</h2>
+            <p class="card-subtitle">Latest 5 entries from the community.</p>
+          </div>
+          <button class="btn btn-ghost" id="refresh-btn" aria-label="Refresh recent submissions" type="button">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M14 8A6 6 0 1 1 8 2c1.657 0 3.157.672 4.243 1.757" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M12 1v3h3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Refresh
+          </button>
+        </div>
+
+        <div id="recent-list" class="recent-list" aria-live="polite" aria-label="Recent submissions list">
+          <!-- Populated by JS -->
+          <div class="recent-skeleton">
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+            <div class="skeleton-item"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+      <p>Deimos Internship Program · Web Dev Track · Week 2 — <time datetime="2026">2026</time></p>
+    </footer>
+
+  </div><!-- /page-wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
